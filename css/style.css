@@ -1,0 +1,18 @@
+body{
+    background-image: url('../img/bg.png');
+}
+
+.opacity{
+    opacity: 90%;
+}
+
+#form-choose-todo-list,
+#form-make-todo-list,
+#form-make-task{
+    border: 1px solid;
+    border-radius: 4px;
+}
+
+.color-gray{
+    color: gray;
+}

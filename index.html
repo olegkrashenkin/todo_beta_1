@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ru" class="h-100">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/bootstrap.bundle.min.js" defer></script>
+    <script src="js/script.js" defer></script>
+    <title>Document</title>
+</head>
+<body class="container-fluid px-0 h-100 d-flex flex-column">
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="svg-done" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+        <path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/>
+    </symbol>
+    <symbol id="svg-delete" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+    </symbol>
+    <symbol id="svg-edit" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+        <path fill-rule="evenodd"
+              d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+    </symbol>
+    <symbol id="svg-return" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M11.534 7h3.932a.25.25 0 0 1 .192.41l-1.966 2.36a.25.25 0 0 1-.384 0l-1.966-2.36a.25.25 0 0 1 .192-.41zm-11 2h3.932a.25.25 0 0 0 .192-.41L2.692 6.23a.25.25 0 0 0-.384 0L.342 8.59A.25.25 0 0 0 .534 9z"/>
+        <path fill-rule="evenodd"
+              d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5.002 5.002 0 0 0 8 3zM3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9H3.1z"/>
+    </symbol>
+</svg>
+
+<div class="container mt-3 pt-3 bg-light-subtle opacity">
+    <h1 class="col-12 text-center text-primary-emphasis">Название списка</h1>
+    <div class="row justify-content-between">
+        <div class="col-1">
+            <a class="btn btn-outline-primary btn-sm" id="menu-btn" data-bs-toggle="collapse" href="#menu" role="button">Меню</a>
+        </div>
+
+        <div class="btn-group col-3">
+            <a href="#" id="btn-active" class="btn btn-outline-primary btn-sm">Активные</a>
+            <a href="#" id="btn-all" class="btn btn-outline-primary btn-sm active">Все</a>
+            <a href="#" id="btn-done" class="btn btn-outline-primary btn-sm">Выполненые</a>
+        </div>
+        <div class="collapse mt-2" id="menu">
+            <div class="card card-body flex-row justify-content-between align-items-stretch bg-primary-subtle">
+                <form id="form-make-task" class="border-secondary-subtle p-2 col-3 bg-light-subtle">
+                    <h5 class="text-center text-primary-emphasis">Добавить задачу в текущий список</h5>
+                    <input class="form-control form-control-sm text-primary-emphasis" type="text" placeholder="Новая задача...">
+                    <div class="d-flex justify-content-center mt-3">
+                        <button type="button" class="btn btn-primary btn-sm">Добавить</button>
+                    </div>
+                </form>
+
+                <form id="form-choose-todo-list" class="border-secondary-subtle p-2 mx-1 col-4 bg-light-subtle">
+                    <h5 class="text-center text-primary-emphasis">Выберите список задач</h5>
+                    <select class="form-select text-primary-emphasis" size="5" aria-label="size 3 select example">
+                        <option value="1">Дела по дому</option>
+                        <option value="2">Список покупок</option>
+                        <option value="3">ТЗ к рабочему проекту 1</option>
+                    </select>
+                    <div class="d-flex justify-content-center mt-3">
+                        <button type="button" class="btn btn-primary btn-sm">Открыть</button>
+                    </div>
+                </form>
+
+                <form id="form-make-todo-list" class="border-secondary-subtle p-2 col-3 bg-light-subtle">
+                    <h5 class="text-center text-primary-emphasis">Создать новый список</h5>
+                    <input class="form-control form-control-sm text-primary-emphasis" type="text" placeholder="Новый список...">
+                    <div class="d-flex justify-content-center mt-3">
+                        <button type="button" class="btn btn-primary btn-sm">Создать</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container pt-3 pb-1 bg-light-subtle opacity">
+    <div class="alert alert-success d-flex align-items-center justify-content-between" role="alert">
+        <div class="task-text text-primary-emphasis">
+            Загрузить белье в стиральную машинку
+        </div>
+        <div class="icon-bts d-flex justify-content-center align-items-center">
+            <a href="#">
+                <svg class="bi flex-shrink-0 me-3" width="24" height="24" role="img">
+                    <use xlink:href="#svg-edit"/>
+                </svg>
+            </a>
+            <a href="#">
+                <svg class="bi flex-shrink-0 me-3" width="24" height="24" role="img">
+                    <use xlink:href="#svg-done"/>
+                </svg>
+            </a>
+            <a href="#">
+                <svg class="bi flex-shrink-0" width="24" height="24" role="img">
+                    <use xlink:href="#svg-delete"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <div class="alert alert-success d-flex align-items-center justify-content-between" role="alert">
+        <div class="task-text w-100">
+            <input class="form-control form-control-sm text-primary-emphasis" type="text" value="Покормить кота">
+        </div>
+        <div class="icon-bts d-flex justify-content-center align-items-center">
+            <a href="#" class="color-gray disabled" style="cursor: default" >
+                <svg class="bi flex-shrink-0 mx-3" width="24" height="24" role="img">
+                    <use xlink:href="#svg-edit"/>
+                </svg>
+            </a>
+            <a href="#" class="text-success">
+                <svg class="bi flex-shrink-0 me-3" width="24" height="24" role="img">
+                    <use xlink:href="#svg-done"/>
+                </svg>
+            </a>
+            <a href="#" class="text-danger">
+                <svg class="bi flex-shrink-0" width="24" height="24" role="img">
+                    <use xlink:href="#svg-delete"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <div class="alert alert-secondary d-flex align-items-center justify-content-between" role="alert">
+        <div class="task-text text-decoration-line-through text-primary-emphasis">
+            Полить кактус пока не засох
+        </div>
+        <div class="icon-bts d-flex justify-content-center align-items-center">
+            <a href="#">
+                <svg class="bi flex-shrink-0 me-3" width="24" height="24" role="img">
+                    <use xlink:href="#svg-return"/>
+                </svg>
+            </a>
+            <a href="#">
+                <svg class="bi flex-shrink-0" width="24" height="24" role="img">
+                    <use xlink:href="#svg-delete"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+</div>
+
+<footer class="footer mt-auto py-3 bg-light-subtle opacity">
+    <div class="container d-flex justify-content-center">
+        <span class="text-primary-emphasis opacity">ToDo by Yama v1.0b © 2023</span>
+    </div>
+</footer>
+
+
+</body>
+</html>
