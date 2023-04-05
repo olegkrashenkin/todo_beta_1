@@ -46,7 +46,7 @@
             <a href="#" id="btn-all" class="btn btn-outline-primary btn-sm active">Все</a>
             <a href="#" id="btn-done" class="btn btn-outline-primary btn-sm">Выполненые</a>
         </div>
-        <div class="collapse mt-2" id="menu">
+        <div class="collapse mt-3" id="menu">
             <div class="card card-body flex-row justify-content-between align-items-stretch bg-primary-subtle">
                 <form id="form-make-task" class="border-secondary-subtle p-2 col-3 bg-light-subtle">
                     <h5 class="text-center text-primary-emphasis">Добавить задачу в текущий список</h5>
@@ -81,22 +81,22 @@
 </div>
 
 <div class="container pt-3 pb-1 bg-light-subtle opacity" id="main">
-    <div class="alert alert-success d-flex align-items-center justify-content-between" role="alert">
+    <div class="new-task alert alert-success d-flex align-items-center justify-content-between" role="alert">
         <div class="task-text text-primary-emphasis">
             Загрузить белье в стиральную машинку
         </div>
         <div class="icon-bts d-flex justify-content-center align-items-center">
-            <a href="#">
+            <a class="edit-btn" href="#">
                 <svg class="bi flex-shrink-0 me-3" width="24" height="24" role="img">
                     <use xlink:href="#svg-edit"/>
                 </svg>
             </a>
-            <a href="#">
+            <a class="done-btn" href="#">
                 <svg class="bi flex-shrink-0 me-3" width="24" height="24" role="img">
                     <use xlink:href="#svg-done"/>
                 </svg>
             </a>
-            <a href="#">
+            <a class="delete-btn" href="#">
                 <svg class="bi flex-shrink-0" width="24" height="24" role="img">
                     <use xlink:href="#svg-delete"/>
                 </svg>
@@ -104,7 +104,7 @@
         </div>
     </div>
 
-    <div class="alert alert-success d-flex align-items-center justify-content-between" role="alert">
+    <div class="edit-task alert alert-success d-flex align-items-center justify-content-between" role="alert">
         <div class="task-text w-100">
             <input class="form-control form-control-sm text-primary-emphasis" type="text" value="Покормить кота">
         </div>
@@ -114,12 +114,12 @@
                     <use xlink:href="#svg-edit"/>
                 </svg>
             </a>
-            <a href="#" class="text-success">
+            <a class="accept-btn text-success" href="#">
                 <svg class="bi flex-shrink-0 me-3" width="24" height="24" role="img">
                     <use xlink:href="#svg-done"/>
                 </svg>
             </a>
-            <a href="#" class="text-danger">
+            <a class="cancel-btn text-danger" href="#">
                 <svg class="bi flex-shrink-0" width="24" height="24" role="img">
                     <use xlink:href="#svg-delete"/>
                 </svg>
@@ -127,17 +127,17 @@
         </div>
     </div>
 
-    <div class="alert alert-secondary d-flex align-items-center justify-content-between" role="alert">
+    <div class="done-task alert alert-secondary d-flex align-items-center justify-content-between" role="alert">
         <div class="task-text text-decoration-line-through text-primary-emphasis">
             Полить кактус пока не засох
         </div>
         <div class="icon-bts d-flex justify-content-center align-items-center">
-            <a href="#">
+            <a class="return-btn" href="#">
                 <svg class="bi flex-shrink-0 me-3" width="24" height="24" role="img">
                     <use xlink:href="#svg-return"/>
                 </svg>
             </a>
-            <a href="#">
+            <a class="delete-btn" href="#">
                 <svg class="bi flex-shrink-0" width="24" height="24" role="img">
                     <use xlink:href="#svg-delete"/>
                 </svg>
@@ -152,10 +152,7 @@
     </div>
 </footer>
 
-<div class="fade modal-backdrop show"></div>
+<div class="fade modal-backdrop show" style="display: none"></div>
 
-<div class="spinner-border text-light" role="status">
-    <span class="visually-hidden">Загрузка...</span>
-</div>
 </body>
 </html>

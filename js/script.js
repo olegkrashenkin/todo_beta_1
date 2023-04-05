@@ -5,7 +5,7 @@ const toggleMenu = () => {
     menuBtn.dispatchEvent(new Event("click"))
 }
 
-const listener = {
+const listeners = {
     menuBtn: function () {
         menuBtn.addEventListener('click', e => {
             menuBtn.classList.toggle('active')
@@ -21,7 +21,7 @@ const listener = {
         btnGroup.addEventListener('click', e => {
             e.preventDefault()
 
-            if (e.target.id === 'btn-active'){
+            if (e.target.id === 'btn-active') {
                 btnActive.classList.add('active')
                 btnAll.classList.remove('active')
                 btnDone.classList.remove('active')
@@ -93,17 +93,93 @@ const listener = {
             }
         })
     },
+
+    newTask: {
+        tasks: {},
+
+        foo: function (e) {
+            if (e.target.closest('.edit-btn')) {
+                console.log('edit')
+            } else if (e.target.closest('.done-btn')) {
+                console.log('done')
+            } else if (e.target.closest('.delete-btn')) {
+                console.log('del')
+                // listener.newTask.stop()
+            }
+        },
+
+        start: function () {
+            this.tasks = document.querySelectorAll('.new-task')
+
+            this.tasks.forEach(task => {
+                task.addEventListener('click', this.foo)
+            })
+        },
+
+        stop: function () {
+            this.tasks.forEach(task => {
+                task.removeEventListener('click', this.foo)
+            })
+        },
+    },
+
+    editTask: {
+        task: {},
+
+        foo: function (e) {
+            if (e.target.closest('.accept-btn')) {
+                console.log('accept')
+            } else if (e.target.closest('.cancel-btn')) {
+                console.log('cancel')
+            }
+        },
+
+        start: function () {
+            this.task = document.querySelector('.edit-task')
+
+            this.task.addEventListener('click', this.foo)
+        },
+
+        stop: function () {
+            this.task.removeEventListener('click', this.foo)
+        },
+    },
+
+    doneTask: {
+        tasks: {},
+
+        foo: function (e) {
+            if (e.target.closest('.return-btn')) {
+                console.log('return')
+            } else if (e.target.closest('.delete-btn')) {
+                console.log('delete')
+            }
+        },
+
+        start: function () {
+            this.tasks = document.querySelectorAll('.done-task')
+
+            this.tasks.forEach(task => {
+                task.addEventListener('click', this.foo)
+            })
+        },
+
+        stop: function () {
+            this.tasks.forEach(task => {
+                task.removeEventListener('click', this.foo)
+            })
+        },
+    },
+
+
 }
 
 
-
-
-
-
-
-
-listener.menuBtn()
-listener.subMenuBtns()
-listener.addTaskForm()
-listener.makeToDoListForm()
-listener.chooseToDoListForm()
+listeners.menuBtn()
+listeners.subMenuBtns()
+listeners.addTaskForm()
+listeners.makeToDoListForm()
+listeners.chooseToDoListForm()
+listeners.newTask.start()
+listeners.editTask.start()
+listeners.doneTask.start()
