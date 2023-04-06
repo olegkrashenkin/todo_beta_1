@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="js/bootstrap.bundle.min.js" defer></script>
     <script src="js/script.js" defer></script>
-    <title>Document</title>
+    <title>ToDo by Yama v1.0b</title>
 </head>
-<body class="container-fluid px-0 h-100 d-flex flex-column">
+<body class="container-fluid px-0 h-100 d-flex flex-column b-img">
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <symbol id="svg-done" fill="currentColor" viewBox="0 0 16 16">
@@ -152,7 +152,36 @@
     </div>
 </footer>
 
-<div class="fade modal-backdrop show" style="display: none"></div>
+<div class="fade modal-backdrop show d-flex justify-content-center align-items-center d-none">
+    <div class="spinner-border text-light d-none" style="width: 5rem; height: 5rem;" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+
+<div class="fade modal-backdrop show d-flex justify-content-center align-items-center opacity-100 b-img">
+    <form class="bg-light-subtle p-5">
+        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+        <div class="form-floating">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Login">
+            <label for="floatingInput">Login</label>
+        </div>
+        <div class="form-floating">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Password</label>
+        </div>
+
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" value="remember-me"> Remember me
+            </label>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Войти</button>
+        <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">Регистрация</button>
+        <p class="mt-5 mb-3 text-muted">ToDo by Yama v1.0b © 2023</p>
+    </form>
+</div>
+
 
 </body>
 </html>

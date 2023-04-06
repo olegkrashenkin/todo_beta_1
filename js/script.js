@@ -5,6 +5,10 @@ const toggleMenu = () => {
     menuBtn.dispatchEvent(new Event("click"))
 }
 
+// const loading = () => {
+//     const
+// }
+
 const listeners = {
     menuBtn: function () {
         menuBtn.addEventListener('click', e => {
